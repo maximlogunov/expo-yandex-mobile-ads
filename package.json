@@ -1,0 +1,42 @@
+{
+  "name": "expo-yandex-mobile-ads",
+  "version": "0.1.0",
+  "description": "Expo package that adds Yandex Mobile Ads SDK support to your iOS ans Android applications",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "expo-module build",
+    "clean": "expo-module clean",
+    "lint": "expo-module lint",
+    "test": "expo-module test",
+    "prepare": "expo-module prepare",
+    "prepublishOnly": "expo-module prepublishOnly",
+    "expo-module": "expo-module",
+    "open:ios": "xed example/ios",
+    "open:android": "open -a \"Android Studio\" example/android"
+  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "expo-yandex-mobile-ads",
+    "ExpoYandexMobileAds"
+  ],
+  "repository": "https://github.com/maximlogunov/expo-yandex-mobile-ads",
+  "bugs": {
+    "url": "https://github.com/maximlogunov/expo-yandex-mobile-ads/issues"
+  },
+  "author": "Maksim Logunov <logunov.personal@gmail.com> (https://github.com/maximlogunov)",
+  "license": "MIT",
+  "homepage": "https://github.com/maximlogunov/expo-yandex-mobile-ads#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "^18.0.25",
+    "expo-module-scripts": "^3.5.2",
+    "expo-modules-core": "^1.12.20"
+  },
+  "peerDependencies": {
+    "expo": "*",
+    "react": "*",
+    "react-native": "*"
+  }
+}
