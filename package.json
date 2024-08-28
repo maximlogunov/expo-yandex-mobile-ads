@@ -1,7 +1,7 @@
 {
   "name": "expo-yandex-mobile-ads",
   "version": "0.1.0",
-  "description": "Expo package that adds Yandex Mobile Ads SDK support to your iOS ans Android applications",
+  "description": "Unofficial Expo package that adds Yandex Mobile Ads SDK support to your iOS ans Android applications",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
