@@ -2,6 +2,7 @@ import ExpoModulesCore
 import YandexMobileAds
 
 public class ExpoYandexMobileAdsModule: Module {
+  internal var isInitialized = false
   // Each module class must implement the definition function. The definition consists of components
   // that describes the module's functionality and behavior.
   // See https://docs.expo.dev/modules/module-api for more details about available components.
@@ -13,6 +14,28 @@ public class ExpoYandexMobileAdsModule: Module {
 
     Property("SDKVersion") {
       return MobileAds.sdkVersion() 
+    }
+
+    AsyncFunction("initialize") { (config: ExpoYandexMobileAdsConfig, promise: Promise) in
+      if (config.enableLogging) {
+        MobileAds.enableLogging();
+      }
+      
+      if (config.enableDebugErrorIndicator) {
+        MobileAds.enableVisibilityErrorIndicator(for: .simulator)
+      }
+      
+      MobileAds.setUserConsent(config.userConsent)
+      MobileAds.setLocationTrackingEnabled(config.locationConsent)
+      
+      if (isInitialized) {
+        promise.resolve("Yandex Mobile Ads 7.4.0 updated")
+      } else {
+        MobileAds.initializeSDK(completionHandler: { [weak self] in
+          self?.isInitialized = true
+          promise.resolve("Yandex Mobile Ads 7.4.0 initialized successfully")
+        })
+      }
     }
 
     // Sets constant properties on the module. Can take a dictionary or a closure that returns a dictionary.
