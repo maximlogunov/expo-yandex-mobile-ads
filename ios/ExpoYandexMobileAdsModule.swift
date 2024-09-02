@@ -27,8 +27,7 @@ public class ExpoYandexMobileAdsModule: Module {
       MobileAds.setUserConsent(config.userConsent)
       MobileAds.setLocationTrackingEnabled(config.locationConsent)
 
-      MobileAds.initializeSDK(completionHandler: { [weak self] in
-        self?.isInitialized = true
+      MobileAds.initializeSDK(completionHandler: {
         promise.resolve("Yandex Mobile Ads 7.4.0 initialized successfully")
       })
     }
