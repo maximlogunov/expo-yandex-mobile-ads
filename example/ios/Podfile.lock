@@ -1267,16 +1267,16 @@ PODS:
     - React-perflogger (= 0.74.5)
     - React-utils (= 0.74.5)
   - SocketRocket (0.7.0)
-  - VGSL (6.4.1):
-    - VGSLFundamentals (= 6.4.1)
-    - VGSLNetworking (= 6.4.1)
-    - VGSLUI (= 6.4.1)
-  - VGSLFundamentals (6.4.1)
-  - VGSLNetworking (6.4.1):
-    - VGSLFundamentals (= 6.4.1)
-    - VGSLUI (= 6.4.1)
-  - VGSLUI (6.4.1):
-    - VGSLFundamentals (= 6.4.1)
+  - VGSL (6.5.0):
+    - VGSLFundamentals (= 6.5.0)
+    - VGSLNetworking (= 6.5.0)
+    - VGSLUI (= 6.5.0)
+  - VGSLFundamentals (6.5.0)
+  - VGSLNetworking (6.5.0):
+    - VGSLFundamentals (= 6.5.0)
+    - VGSLUI (= 6.5.0)
+  - VGSLUI (6.5.0):
+    - VGSLFundamentals (= 6.5.0)
   - YandexMobileAds (7.4.0):
     - AppMetricaCore (< 6.0.0, >= 5.0.0)
     - AppMetricaCrashes (< 6.0.0, >= 5.0.0)
@@ -1530,7 +1530,7 @@ SPEC CHECKSUMS:
   ExpoFont: e7f2275c10ca8573c991e007329ad6bf98086485
   ExpoKeepAwake: 3b8815d9dd1d419ee474df004021c69fdd316d08
   ExpoModulesCore: d15ce10fea70ab650230feb69f45bb208d3a6596
-  ExpoYandexMobileAds: 17d0318ae374687e743fa15fd4e07047d03b259c
+  ExpoYandexMobileAds: 9eca66887d2520ab3c36c283005b098dffbba728
   FBLazyVector: ac12dc084d1c8ec4cc4d7b3cf1b0ebda6dab85af
   fmt: 4c2741a687cc09f0634a2e2c72a838b99f1ff120
   glog: fdfdfe5479092de0c4bdbebedd9056951f092c4f
@@ -1584,10 +1584,10 @@ SPEC CHECKSUMS:
   React-utils: f242eb7e7889419d979ca0e1c02ccc0ea6e43b29
   ReactCommon: f7da14a8827b72704169a48c929bcde802698361
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
-  VGSL: f933d558164acfa8df87e1365fa47b069871761c
-  VGSLFundamentals: a957918fb54f377e1f75b4e46923a8f4b8db9b3b
-  VGSLNetworking: 79a991a7695839a2c80715c7bc5a06327a1a0259
-  VGSLUI: 71495727b634be4042a805eb52ce2e0297d02812
+  VGSL: e55f0296f0aa9b4250ea9752720cb7c2c22f1d14
+  VGSLFundamentals: 8ba28da9f3ba10ed500038289dcd17f5ba04c263
+  VGSLNetworking: b2e6cf2f9d3f0bc87ea3b3ef57352e33f13dbbc0
+  VGSLUI: 84a11fabc999e59b3e4db6425dfcae669cb6606d
   YandexMobileAds: f685e526208a1c23c0dc23caaabf8cbe1b100dd3
   Yoga: 950bbfd7e6f04790fdb51149ed51df41f329fcc8
 

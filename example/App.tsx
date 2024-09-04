@@ -1,26 +1,39 @@
 import * as YandexMobileAds from 'expo-yandex-mobile-ads';
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function App() {
-  const [status, setStatus] = useState('Initializing...');
+  const [ready, setReady] = useState(false);
+  const [error, setError] = useState('');
 
   const initializeSDK = async () => {
-    const result = await YandexMobileAds.initialize({
-      enableLogging: true,
-    });
+    try {
+      await YandexMobileAds.initialize({
+        userConsent: true,
+      });
 
-    setStatus(result);
+      setReady(true);
+    } catch (e) {
+      setError((e as Error).message);
+    }
   };
 
   useEffect(() => {
     initializeSDK();
   }, []);
 
+  const handlePress = () =>
+    YandexMobileAds.showInterstitialAd('demo-interstitial-yandex');
+
   return (
     <View style={styles.container}>
       <Text>SDKVersion: {YandexMobileAds.SDKVersion}</Text>
-      <Text>{status}</Text>
+      <Text>{error}</Text>
+      {ready && (
+        <TouchableOpacity onPress={handlePress}>
+          <Text>Show Interstitial</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 }

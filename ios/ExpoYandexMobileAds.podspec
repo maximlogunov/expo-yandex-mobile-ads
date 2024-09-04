@@ -10,13 +10,14 @@ Pod::Spec.new do |s|
   s.license        = package['license']
   s.author         = package['author']
   s.homepage       = package['homepage']
-  s.platforms      = { :ios => '13.4', :tvos => '13.4' }
+  s.platforms      = { :ios => '13.4' }
   s.swift_version  = '5.4'
   s.source         = { git: 'https://github.com/maximlogunov/expo-yandex-mobile-ads' }
   s.static_framework = true
 
   s.dependency 'ExpoModulesCore'
   s.dependency 'YandexMobileAds', '7.4.0'
+
 
   # Swift/Objective-C compatibility
   s.pod_target_xcconfig = {

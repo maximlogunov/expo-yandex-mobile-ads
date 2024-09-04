@@ -2,6 +2,8 @@ import ExpoModulesCore
 import YandexMobileAds
 
 public class ExpoYandexMobileAdsModule: Module {
+  internal var isInitialized = false
+  internal lazy var interstitialManager = InterstitialManager()
   // Each module class must implement the definition function. The definition consists of components
   // that describes the module's functionality and behavior.
   // See https://docs.expo.dev/modules/module-api for more details about available components.
@@ -27,9 +29,23 @@ public class ExpoYandexMobileAdsModule: Module {
       MobileAds.setUserConsent(config.userConsent)
       MobileAds.setLocationTrackingEnabled(config.locationConsent)
 
-      MobileAds.initializeSDK(completionHandler: {
-        promise.resolve("Yandex Mobile Ads 7.4.0 initialized successfully")
-      })
+      if (isInitialized) {
+        promise.resolve()
+      } else {
+        MobileAds.initializeSDK(completionHandler: { [weak self] in
+          self?.isInitialized = true
+
+          promise.resolve()
+        })
+      }
+    }
+
+    AsyncFunction("showInterstitialAd") { (adUnitId: String, promise: Promise) in
+      if (isInitialized) {
+        interstitialManager.loadAd(adUnitId, withPromise: promise)
+      } else {
+        promise.reject(InitializationRequiredException())
+      }
     }
 
     // Sets constant properties on the module. Can take a dictionary or a closure that returns a dictionary.

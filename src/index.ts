@@ -1,1 +1,1 @@
-export { SDKVersion, initialize } from './YandexMobileAds';
+export { SDKVersion, initialize, showInterstitialAd } from './YandexMobileAds';
