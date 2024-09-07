@@ -3,11 +3,11 @@ import ExpoYandexMobileAdsModule from './ExpoYandexMobileAdsModule';
 
 const SDKVersion = ExpoYandexMobileAdsModule.SDKVersion;
 
-async function initialize(config: ExpoYandexMobileAdsConfig): Promise<string> {
+async function initialize(config: ExpoYandexMobileAdsConfig): Promise<void> {
   return await ExpoYandexMobileAdsModule.initialize(config);
 }
 
-async function showInterstitialAd(adUnitID: string): Promise<string> {
+async function showInterstitialAd(adUnitID: string): Promise<void> {
   return await ExpoYandexMobileAdsModule.showInterstitialAd(adUnitID);
 }
 

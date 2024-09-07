@@ -4,6 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function App() {
   const [ready, setReady] = useState(false);
+  const [status, setStatus] = useState('initialized...');
   const [error, setError] = useState('');
 
   const initializeSDK = async () => {
@@ -13,6 +14,7 @@ export default function App() {
       });
 
       setReady(true);
+      setStatus('ready');
     } catch (e) {
       setError((e as Error).message);
     }
@@ -22,13 +24,19 @@ export default function App() {
     initializeSDK();
   }, []);
 
-  const handlePress = () =>
-    YandexMobileAds.showInterstitialAd('demo-interstitial-yandex');
+  const handlePress = async () => {
+    const result = await YandexMobileAds.showInterstitialAd(
+      'demo-interstitial-yandex',
+    );
+
+    setStatus(result);
+  };
 
   return (
     <View style={styles.container}>
       <Text>SDKVersion: {YandexMobileAds.SDKVersion}</Text>
       <Text>{error}</Text>
+      <Text>{status}</Text>
       {ready && (
         <TouchableOpacity onPress={handlePress}>
           <Text>Show Interstitial</Text>

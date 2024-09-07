@@ -8,8 +8,14 @@ import expo.modules.kotlin.modules.ModuleDefinition
 import com.yandex.mobile.ads.common.MobileAds
 
 class ExpoYandexMobileAdsModule : Module() {
+  private var isInitialized = false
+
   private val context: Context
     get() = appContext.reactContext ?: throw Exceptions.ReactContextLost()
+
+  private val activity
+    get() = appContext.currentActivity ?: throw Exceptions.MissingActivity()
+
   // Each module class must implement the definition function. The definition consists of components
   // that describes the module's functionality and behavior.
   // See https://docs.expo.dev/modules/module-api for more details about available components.
@@ -30,7 +36,17 @@ class ExpoYandexMobileAdsModule : Module() {
       MobileAds.enableDebugErrorIndicator(config.enableDebugErrorIndicator)
 
       MobileAds.initialize(context) {
-        promise.resolve("Yandex Mobile Ads 7.4.0 initialized successfully")
+        isInitialized = true
+
+        promise.resolve()
+      }
+    }
+
+    AsyncFunction("showInterstitialAd") { adUnitId: String, promise: Promise ->
+      if (isInitialized) {
+        InterstitialAdManager(activity, context, promise).loadAd(adUnitId)
+      } else {
+        promise.reject(InitializationRequiredException())
       }
     }
   }

@@ -7,8 +7,8 @@ import {
 
 export interface ModuleDefinition {
   SDKVersion: string;
-  initialize(config: ExpoYandexMobileAdsConfig): Promise<string>;
-  showInterstitialAd(adUnitID: string): Promise<string>;
+  initialize(config: ExpoYandexMobileAdsConfig): Promise<void>;
+  showInterstitialAd(adUnitID: string): Promise<void>;
 }
 
 // It loads the native module object from the JSI or falls back to
