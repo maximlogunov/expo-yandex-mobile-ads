@@ -25,11 +25,11 @@ export default function App() {
   }, []);
 
   const handlePress = async () => {
-    const result = await YandexMobileAds.showInterstitialAd(
-      'demo-interstitial-yandex',
-    );
-
-    setStatus(result);
+    try {
+      await YandexMobileAds.showInterstitialAd('demo-interstitial-yandex');
+    } catch (e) {
+      setError((e as Error).message);
+    }
   };
 
   return (
