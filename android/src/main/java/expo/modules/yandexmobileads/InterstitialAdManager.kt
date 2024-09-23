@@ -34,6 +34,7 @@ class InterstitialAdManager(
         override fun onAdFailedToLoad(adRequestError: AdRequestError) {
             // Ad failed to load with AdRequestError.
             // Attempting to load a new ad from the onAdFailedToLoad() method is strongly discouraged.
+            promise.reject(AdFailedToLoadException(adRequestError.description))
         }
       })
     }
@@ -57,6 +58,8 @@ class InterstitialAdManager(
           // Clean resources after Ad dismissed
           interstitialAd?.setAdEventListener(null)
           interstitialAd = null
+
+          promise.reject(AdFailedToShowException(adError.description))
 
           // Now you can preload the next interstitial ad.
           // loadInterstitialAd()
